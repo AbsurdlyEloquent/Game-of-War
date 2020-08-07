@@ -1,1 +1,13 @@
-\
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+} button {
+  font-size: 24px;
+  background-color: #00d1ff;
+  border: 2px solid black;
+  border-radius: 10%;
+  padding: 10px;
+}
