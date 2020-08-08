@@ -1,5 +1,5 @@
 export const style = {
-  startGame = `
+  startGame: `
     color: red;
 
   `
