@@ -1,6 +1,6 @@
 # Game of War Layout
 
-### Custom Commands
+**Custom Commands**
 This goes at the beginning of `script.js`, just after the import statements
 
 ```js
@@ -29,3 +29,5 @@ Object.defineProperty(window, '*command*', {
 - `isReady()` -Prompt to type 'Start', runs on window load
 
 - `StartGame()` -Called by command 'Start'. Initiates new `game`.
+
+##Document Flow
