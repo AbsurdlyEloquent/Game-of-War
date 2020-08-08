@@ -1,3 +1,9 @@
+export class player {
+  constructor(name) {
+    this.name = name;
+    this.cards = [];
+  }
+}
 export class card {
   constructor(suit, rank) {
     this.suit = suit;
@@ -41,7 +47,20 @@ export class deck {
       }
     }
   }
-  shuffle = function() {
-    this.cards.sort(() => Math.random() - 0.5)
+  shuffle() {
+    return this.cards.sort(() => Math.random() - 0.5)
+  }
+}
+export class game {
+  constructor() {
+    this.newDeck = new deck().shuffle();
+    this.battle = 0;
+    this.player1 = prompt('Enter the name of player one:')
+    this.player2 = prompt('Enter the name of player two:')
+
+  }
+
+  deal() {
+
   }
 }

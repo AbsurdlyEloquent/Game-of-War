@@ -1,4 +1,7 @@
 export const style = {
+  prompt: `
+    color: red;
+  `,
   isReady: `
     color: red;
     font-size: 10px;

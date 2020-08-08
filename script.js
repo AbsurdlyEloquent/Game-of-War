@@ -1,5 +1,5 @@
 import { style } from './style.js'
-import { deck } from './class.js'
+import { game, player } from './class.js'
 
 Object.defineProperty(window, 'Start', {
   get: function() {
@@ -9,6 +9,7 @@ Object.defineProperty(window, 'Start', {
 });
 
 let isReady = function() {
+//  window.player1 = prompt(`Enter the name of player one:`);
   console.log(`%c
     WWWWWWWW                           WWWWWWWW                                   !!!
     W::::::W                           W::::::W                                  !!:!!
@@ -25,17 +26,13 @@ let isReady = function() {
              W:::::::W       W:::::::W      a::::a    a:::::a r:::::r
               W:::::W         W:::::W       a:::::aaaa::::::a r:::::r             !!!
                W:::W           W:::W         a::::::::::aa:::ar:::::r            !!:!!
-                WWW             WWW           aaaaaaaaaa  aaaarrrrrrr             !!! 
+                WWW             WWW           aaaaaaaaaa  aaaarrrrrrr             !!!
                         `, style.isReady);
   console.log(`%cEnter "Start" to start the game`, style.startGame)
   }
 isReady();
-function log() {
-  console.log(newDeck);
-}
 
 function startGame() {
-  window.newDeck = new deck();
-  newDeck.shuffle();
-  log();
+  window.newGame = new game();
+  console.log(newGame.player1, newGame.player2);
 }
