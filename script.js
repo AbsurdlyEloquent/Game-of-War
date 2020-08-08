@@ -1,4 +1,5 @@
 import { style } from './style.js'
+import { deck } from './class.js'
 
 Object.defineProperty(window, 'Start', {
   get: function() {
@@ -6,56 +7,35 @@ Object.defineProperty(window, 'Start', {
     startGame();
   }
 });
+
 let isReady = function() {
+  console.log(`%c
+    WWWWWWWW                           WWWWWWWW                                   !!!
+    W::::::W                           W::::::W                                  !!:!!
+    W::::::W                           W::::::W                                  !:::!
+    W::::::W                           W::::::W                                  !:::!
+     W:::::W           WWWWW           W:::::Waaaaaaaaaaaaa  rrrrr   rrrrrrrrr   !:::!
+      W:::::W         W:::::W         W:::::W a::::::::::::a r::::rrr:::::::::r  !:::!
+       W:::::W       W:::::::W       W:::::W  aaaaaaaaa:::::ar:::::::::::::::::r !:::!
+        W:::::W     W:::::::::W     W:::::W            a::::arr::::::rrrrr::::::r!:::!
+         W:::::W   W:::::W:::::W   W:::::W      aaaaaaa:::::a r:::::r     r:::::r!:::!
+          W:::::W W:::::W W:::::W W:::::W     aa::::::::::::a r:::::r     rrrrrrr!:::!
+           W:::::W:::::W   W:::::W:::::W     a::::aaaa::::::a r:::::r            !!:!!
+            W:::::::::W     W:::::::::W     a::::a    a:::::a r:::::r             !!!
+             W:::::::W       W:::::::W      a::::a    a:::::a r:::::r
+              W:::::W         W:::::W       a:::::aaaa::::::a r:::::r             !!!
+               W:::W           W:::W         a::::::::::aa:::ar:::::r            !!:!!
+                WWW             WWW           aaaaaaaaaa  aaaarrrrrrr             !!! 
+                        `, style.isReady);
   console.log(`%cEnter "Start" to start the game`, style.startGame)
   }
 isReady();
+function log() {
+  console.log(newDeck);
+}
 
 function startGame() {
-  newDeck = new deck();
-  console.log(deck);
-}
-class card {
-  constructor(suit, rank) {
-    this.suit = suit;
-    this.score = rank;
-    switch(rank) {
-      case 13:
-        this.rank = 'King'
-        break;
-      case 12:
-        this.rank = 'Queen'
-        break;
-      case 11:
-        this.rank = "Jack"
-        break;
-      default:
-        this.rank = rank
-        break;
-      case 0:
-        this.rank = 'ace'
-    }
-  }
-}
-class deck {
-  constructor() {
-    this.cards = [];
-    for (var suit = 4; suit > 0; suit--) {
-      for (var rank = 13; rank > 0; rank--) {
-        switch(suit) {
-          case 4:
-            this.cards.push(new card('hearts', rank))
-            break;
-          case 3:
-            this.cards.push(new card('diamonds', rank))
-            break;
-          case 2:
-            this.cards.push(new card('clubs', rank))
-            break;
-          case 1:
-            this.cards.push(new card('spades', rank))
-        }
-      }
-    }
-  }
+  window.newDeck = new deck();
+  newDeck.shuffle();
+  log();
 }
