@@ -16,16 +16,16 @@ Object.defineProperty(window, '*command*', {
 
 **Classes**
 
-`player` generates a player with a name and an empty hand
+-`player` generates a player with a name and an empty hand
 
-`card` generates a new card object with values passed from the deck
+-`card` generates a new card object with values passed from the deck
 
-`deck` generates a deck array with 52 `card` objects. has a `shuffle` method
+-`deck` generates a deck array with 52 `card` objects. has a `shuffle` method
 
-`game` generates a new game and initializes a shuffled deck. Prompts for two players. Methods for dealing and game rounds
+-`game` generates a new game and initializes a shuffled deck. Prompts for two players. Methods for dealing and game rounds
 
 **Functions:**
 
-`isReady()` -Prompt to type 'Start', runs on window load
+-`isReady()` -Prompt to type 'Start', runs on window load
 
-`StartGame()` -Called by command 'Start'. Initiates new `game`.
+-`StartGame()` -Called by command 'Start'. Initiates new `game`.
