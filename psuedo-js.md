@@ -30,4 +30,4 @@ Object.defineProperty(window, '*command*', {
 
 - `StartGame()` -Called by command 'Start'. Initiates new `game`.
 
-##Document Flow
+## Document Flow
