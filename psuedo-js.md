@@ -1,3 +1,5 @@
+# Game of War Layout
+
 ### Custom Commands
 This goes at the beginning of `script.js`, just after the import statements
 

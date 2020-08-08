@@ -28,7 +28,11 @@ let isReady = function() {
                W:::W           W:::W         a::::::::::aa:::ar:::::r            !!:!!
                 WWW             WWW           aaaaaaaaaa  aaaarrrrrrr             !!!
                         `, style.isReady);
-  console.log(`%cEnter "Start" to start the game`, style.startGame)
+  console.log(`%c  _             _
+ /_\`_ _/__  _  /_\`_/__  __/_ _/__    __/__  __/_ _/_/_ _   _  _  _ _  _  /
+/_,/ // /_'/  ._/ / /_|/ /   / /_/ _\\ / /_|/ /   / / //_' /_//_|/ / //_'.
+                                                          _/
+`, style.isReady2,)
   }
 isReady();
 
