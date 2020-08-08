@@ -12,6 +12,8 @@ Object.defineProperty(window, '*command*', {
 - 'Start' *-To start the game*
 - 'Reset' *-To restart the game*
 
+**Functions**
+
 `isReady()` -Prompt to type 'Start', runs on window load
 
 `StartGame()` -Called by command 'Start'. Initiates new `deck` from class and shuffles the deck.
