@@ -4,6 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
+  background-color: #b99cd4
 } button {
   font-size: 24px;
   background-color: #00d1ff;

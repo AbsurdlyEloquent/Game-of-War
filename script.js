@@ -7,7 +7,7 @@ Object.defineProperty(window, 'Start', {
   }
 });
 let isReady = function() {
-  console.log(`%cEnter "Start" to start the game.`, style.startGame)
+  console.log(`%cEnter "Start" to start the game`, style.startGame)
   }
 isReady();
 
@@ -57,9 +57,5 @@ class deck {
         }
       }
     }
-  }
-  draw() {
-    let cardDrawn = this.cards[Math.floor(Math.random()*51)]
-    return `You drew a ${cardDrawn.rank} of ${cardDrawn.suit}`
   }
 }
