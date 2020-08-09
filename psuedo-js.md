@@ -28,11 +28,9 @@ Object.defineProperty(window, 'command', {
 
 **Functions:**
 
-- `isReady()` -Prompt to type 'Start', runs on window load
-
 - `StartGame()` -Called by command 'Start'. Initiates new `game`.
 
-- `wait()` -Similar to bash `sleep`. Takes in ml values. *-Not mine, shamelessly stolen-*
+- `wait()` -Similar to bash `sleep`. Takes in ms values. *-Not mine, shamelessly stolen-*
 
 ## Document Flow
 

@@ -1,7 +1,14 @@
 export class player {
   constructor(name) {
     this.name = name;
+    //will be filled with cards upon game.deal()
     this.hand = [];
+  }
+  draw() {
+    // Draws a card and puts it in its own property
+    // The property will be deleted at the end of the battle
+    this.card = this.hand.shift();
+    console.log(this.hand)
   }
 }
 export class card {
@@ -19,6 +26,7 @@ export class card {
         this.rank = "Jack"
         break;
       default:
+      // toString is for displaying cards easily
         this.rank = rank.toString();
         break;
       case 0:
@@ -48,6 +56,7 @@ export class deck {
     }
   }
   shuffle() {
+    // number is randomly + or - which tells the sort to switch or not
     return this.cards.sort(() => Math.random() - 0.5)
   }
 }
@@ -58,15 +67,17 @@ export class game {
     this.player1 = new player(prompt('Enter the name of player one:'))
     this.player2 = new player(prompt('Enter the name of player two:'))
   }
-
+//I really wanted to make this dependent on the deck length but I couldn't make it work
   deal() {
-    for (let i of this.newDeck) {
+    for (let i = 0; i < 26; i++) {
       let card1 = this.newDeck.shift()
       let card2 = this.newDeck.shift()
       this.player1.hand.push(card1)
       this.player2.hand.push(card2)
     }
-    console.log(this.player1.name, this.player1.hand)
-    console.log(this.player2.name, this.player2.hand)
+  }
+  battle() {
+    this.player1.draw()
+    this.player2.draw()
   }
 }

@@ -1,3 +1,5 @@
+//I tried to make this look like a real stylesheet
+//It's pretty close, right?
 export const style = {
   isReady: `
     color: red;

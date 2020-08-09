@@ -1,8 +1,7 @@
 import { style } from './style.js'
 import { game, player } from './class.js'
 
-isReady();
-
+// this is my off brand node readline() that works in browsers
 Object.defineProperty(window, 'Start', {
   get: function() {
     console.log("Here we go!");
@@ -10,9 +9,8 @@ Object.defineProperty(window, 'Start', {
   }
 });
 
-function isReady() {
-//  window.player1 = prompt(`Enter the name of player one:`);
-  console.log(`%c
+// yes I really like ascii
+console.log(`%c
     WWWWWWWW                           WWWWWWWW                                   !!!
     W::::::W                           W::::::W                                  !!:!!
     W::::::W                           W::::::W                                  !:::!
@@ -30,24 +28,17 @@ function isReady() {
                W:::W           W:::W         a::::::::::aa:::ar:::::r            !!:!!
                 WWW             WWW           aaaaaaaaaa  aaaarrrrrrr             !!!
                         `, style.isReady);
-  console.log(`%c  _             _
+console.log(`%c  _             _
  /_\`_ _/__  _  /_\`_/__  __/_ _/__    __/__  __/_ _/_/_ _   _  _  _ _  _  /
 /_,/ // /_'/  ._/ / /_|/ /   / /_/ _\\ / /_|/ /   / / //_' /_//_|/ / //_'.
                                                           _/
 `, style.isReady2,)
-  }
+
 
 function startGame() {
   window.newGame = new game();
-  console.log(newGame.newDeck);
   newGame.deal();
-  console.log(newGame.newDeck);
-  wait(2000)
-  console.clear();
-  wait(2000)
-  console.log('hi');
-  wait(2000)
-  console.clear();
+  newGame.battle();
 }
 
 function wait(ms)
