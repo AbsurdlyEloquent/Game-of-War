@@ -16,6 +16,8 @@ Object.defineProperty(window, 'Reset', {
       console.error(`The game hasn't started!`)
     } else {
       window.newGame = null
+      console.clear()
+      isReady();
     }
   }
 })
@@ -46,15 +48,28 @@ console.log(`%c  _             _
                                                           _/
 `, style.isReady2,)
 }
-
-function startGame() {
-  window.newGame = new game();
-  newGame.deal();
- while (newGame.active === true) {
- newGame.battle();
- wait(500);
-// finishGame(newGame.winner)
-  }
+function startGame(){
+    window.newGame = new game();
+    newGame.deal();
+    // finishGame(newGame.winner)
+    //here is where I want the pause to happen until the user presses "enter" key
+    function after(){
+      newGame.battle();
+      wait(500);
+        //Below is what I want to happen after the "enter" key has been pressed.
+    }
+    function keydownHandler(e) {
+        if (e.keyCode == 13) {  // 13 is the enter key
+            after();
+        }
+    }
+    // register your handler method for the keydown event
+    if (document.addEventListener) {
+      document.addEventListener('keydown', keydownHandler, false);
+    }
+    else if (document.attachEvent) {
+      document.attachEvent('onkeydown', keydownHandler);
+    }
 }
 
 function wait(ms)
@@ -122,10 +137,9 @@ class game {
     }
   }
   battle() {
-    this.checkCards();
-    battle:
+    checker:
     if (this.active === false) {
-      break battle
+      break checker
     } else {
       console.log(`Battle ${this.battleNum}`)
       this.player1.draw()
@@ -139,7 +153,8 @@ class game {
       } else if (this.player1.card.score === this.player2.card.score) {
         this.war(); //oooo scary
       }
-      delete this.player1.card, this.player2.card
+      delete this.player1.card
+      delete this.player2.card
     }
   }
 }
