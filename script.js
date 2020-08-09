@@ -37,9 +37,23 @@ function isReady() {
 `, style.isReady2,)
   }
 
-
 function startGame() {
   window.newGame = new game();
-  console.log(newGame.player1, newGame.player2)
   console.log(newGame.newDeck);
+  newGame.deal();
+  console.log(newGame.newDeck);
+  wait(2000)
+  console.clear();
+  wait(2000)
+  console.log('hi');
+  wait(2000)
+  console.clear();
+}
+
+function wait(ms)
+{
+    var d = new Date();
+    var d2 = null;
+    do { d2 = new Date(); }
+    while(d2-d < ms);
 }

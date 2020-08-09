@@ -54,12 +54,19 @@ export class deck {
 export class game {
   constructor() {
     this.newDeck = new deck().shuffle();
-    this.battle = 0;
-    this.player1 = prompt('Enter the name of player one:')
-    this.player2 = prompt('Enter the name of player two:')
+    this.battleNum = 0;
+    this.player1 = new player(prompt('Enter the name of player one:'))
+    this.player2 = new player(prompt('Enter the name of player two:'))
   }
 
   deal() {
-
+    for (let i of this.newDeck) {
+      let card1 = this.newDeck.shift()
+      let card2 = this.newDeck.shift()
+      this.player1.hand.push(card1)
+      this.player2.hand.push(card2)
+    }
+    console.log(this.player1.name, this.player1.hand)
+    console.log(this.player2.name, this.player2.hand)
   }
 }

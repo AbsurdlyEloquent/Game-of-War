@@ -32,6 +32,8 @@ Object.defineProperty(window, 'command', {
 
 - `StartGame()` -Called by command 'Start'. Initiates new `game`.
 
+- `wait()` -Similar to bash `sleep`. Takes in ml values. *-Not mine, shamelessly stolen-*
+
 ## Document Flow
 
 ### Upon Load
@@ -48,6 +50,14 @@ Object.defineProperty(window, 'command', {
 **`game.deal()` calls `game.battle()`**
 - Draws two cards from each players hand
 *need to make a `draw` method for the players*
-- `if (player1.card.score > player2.card.score) {
-      
-  }`
+```js
+if (player1.card.score > player2.card.score) {
+  player1.hand.push(player1.card, player2.card)
+  player1.card = null; player2.card = null;
+} else if (player1.card.score < player2.card.score) {
+  player2.hand.push(player1.card, player2.card)
+  player1.card = null; player2.card = null;
+} else if (player1.card.score === player2.card.score) {
+  game.war(); //oooo scary
+}
+```
