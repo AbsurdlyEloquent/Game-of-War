@@ -54,8 +54,13 @@ function startGame(){
     // finishGame(newGame.winner)
     //here is where I want the pause to happen until the user presses "enter" key
     function after(){
+      newGame.checkCards()
+      if (newGame.active === true) {
       newGame.battle();
-      wait(500);
+    } else {
+      gameEnd(newGame.winner)
+    }
+      //wait(500);
         //Below is what I want to happen after the "enter" key has been pressed.
     }
     function keydownHandler(e) {
@@ -137,10 +142,6 @@ class game {
     }
   }
   battle() {
-    checker:
-    if (this.active === false) {
-      break checker
-    } else {
       console.log(`Battle ${this.battleNum}`)
       this.player1.draw()
       this.player2.draw()
@@ -153,8 +154,5 @@ class game {
       } else if (this.player1.card.score === this.player2.card.score) {
         this.war(); //oooo scary
       }
-      delete this.player1.card
-      delete this.player2.card
-    }
   }
 }

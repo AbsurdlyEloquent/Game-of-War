@@ -31,12 +31,15 @@ export class card {
       case 11:
         this.rank = "Jack"
         break;
-      default:
-      // toString is for displaying cards easily
-        this.rank = rank.toString();
+      case 10:
+        this.rank = "⒑"
         break;
-      case 0:
-        this.rank = 'ace'
+      case 1:
+        this.rank = 'Ace'
+        break;
+      default:
+        // toString is for displaying cards easily
+        this.rank = rank.toString();
     }
     this.display = `
     _____
