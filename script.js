@@ -53,6 +53,7 @@ function startGame() {
   while (newGame.active === true) {
   newGame.battle();
   wait(500);
+  
   }
 }
 

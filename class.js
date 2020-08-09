@@ -113,19 +113,24 @@ export class game {
     }
   }
   battle() {
-    console.log(`Battle ${this.battleNum}`)
-    this.player1.draw()
-    this.player2.draw()
-    if (this.player1.card.score > this.player2.card.score) {
-      console.log(`${this.player1.name} wins lol`)
-      this.player1.discard.push(this.player1.card, this.player2.card)
-    } else if (this.player1.card.score < this.player2.card.score) {
-      console.log(`${this.player2.name} wins lol`);
-      this.player2.discard.push(this.player1.card, this.player2.card)
-    } else if (this.player1.card.score === this.player2.card.score) {
-      this.war(); //oooo scary
-    }
-    delete this.player1.card, this.player2.card
     this.checkCards();
+    battle:
+    if (this.active === false) {
+      break battle
+    } else {
+      console.log(`Battle ${this.battleNum}`)
+      this.player1.draw()
+      this.player2.draw()
+      if (this.player1.card.score > this.player2.card.score) {
+        console.log(`${this.player1.name} wins lol`)
+        this.player1.discard.push(this.player1.card, this.player2.card)
+      } else if (this.player1.card.score < this.player2.card.score) {
+        console.log(`${this.player2.name} wins lol`);
+        this.player2.discard.push(this.player1.card, this.player2.card)
+      } else if (this.player1.card.score === this.player2.card.score) {
+        this.war(); //oooo scary
+      }
+      delete this.player1.card, this.player2.card
+    }
   }
 }
