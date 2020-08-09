@@ -8,8 +8,20 @@ Object.defineProperty(window, 'Start', {
     startGame();
   }
 });
-
+Object.defineProperty(window, 'Reset', {
+  get: function() {
+    console.log('Resetting...')
+    wait(2000)
+    if (typeof newGame === typeof undefined || newGame === null) {
+      console.error(`The game hasn't started!`)
+    } else {
+      window.newGame = null
+    }
+  }
+})
 // yes I really like ascii
+isReady();
+function isReady() {
 console.log(`%c
     WWWWWWWW                           WWWWWWWW                                   !!!
     W::::::W                           W::::::W                                  !!:!!
@@ -33,14 +45,14 @@ console.log(`%c  _             _
 /_,/ // /_'/  ._/ / /_|/ /   / /_/ _\\ / /_|/ /   / / //_' /_//_|/ / //_'.
                                                           _/
 `, style.isReady2,)
-
+}
 
 function startGame() {
   window.newGame = new game();
   newGame.deal();
   while (newGame.active === true) {
   newGame.battle();
-  wait(1000);
+  wait(500);
   }
 }
 

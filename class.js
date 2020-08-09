@@ -3,6 +3,8 @@ export class player {
     this.name = name;
     //will be filled with cards upon game.deal()
     this.hand = [];
+    this.discard = [];
+    this.discard = [];
   }
   draw() {
     // Draws a card and puts it in its own property
@@ -59,15 +61,17 @@ export class deck {
       }
     }
   }
-  shuffle() {
+  shuffle(array) {
     // number is randomly + or - which tells the sort to switch or not
-    return this.cards.sort(() => Math.random() - 0.5)
+    return array.sort(() => Math.random() - 0.5)
   }
 }
 export class game {
   constructor() {
     this.active = true;
-    this.newDeck = new deck().shuffle();
+    this.newDeck = new deck()
+    this.newDeck.shuffle(this.newDeck.cards)
+    console.log(this.newDeck.cards);
     this.battleNum = 1;
     this.player1 = new player(prompt('Enter the name of player one:'))
     this.player2 = new player(prompt('Enter the name of player two:'))
@@ -75,23 +79,23 @@ export class game {
 //I really wanted to make this dependent on the deck length but I couldn't make it work
   deal() {
     for (let i = 0; i < 26; i++) {
-      let card1 = this.newDeck.shift()
-      let card2 = this.newDeck.shift()
+      let card1 = this.newDeck.cards.shift()
+      let card2 = this.newDeck.cards.shift()
       this.player1.hand.push(card1)
       this.player2.hand.push(card2)
     }
   }
   endGame(player) {
-    console.log(`woah ${player} won
+    console.log(`woah ${player.name} won
       and now we done`);
-    this.active === false
+    this.active = false;
   }
   checkCards() {
     if (this.player1.hand === undefined || this.player1.hand.length == 0) {
-      console.log(`oh shit ${player1.name}`);
+      console.log(`oh shit ${this.player1.name}`);
       this.endGame(this.player2)
     } else if (this.player2.hand === undefined || this.player2.hand.length == 0) {
-      console.log(`oh shit ${player2.name}`);
+      console.log(`oh shit ${this.player2.name}`);
       this.endGame(this.player1)
     } else {
       this.battleNum++
@@ -114,10 +118,10 @@ export class game {
     this.player2.draw()
     if (this.player1.card.score > this.player2.card.score) {
       console.log(`${this.player1.name} wins lol`)
-      this.player1.hand.push(this.player1.card, this.player2.card)
+      this.player1.discard.push(this.player1.card, this.player2.card)
     } else if (this.player1.card.score < this.player2.card.score) {
       console.log(`${this.player2.name} wins lol`);
-      this.player2.hand.push(this.player1.card, this.player2.card)
+      this.player2.discard.push(this.player1.card, this.player2.card)
     } else if (this.player1.card.score === this.player2.card.score) {
       this.war(); //oooo scary
     }
