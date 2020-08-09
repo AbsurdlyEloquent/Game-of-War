@@ -104,7 +104,7 @@ export class game {
     if (this.player1.warCards.score > this.player2.warCards.score) {
       console.log(`You may have won the battle, ${player1}, but not the war- ...oh wait`);
       for (var i of this.player1.warCards) {
-        this.player1.hand.push(this.player1.warCards[i])
+        this.player1.hand.push(this.player1.warCards[i], this.player2.warCards[i])
       }
     }
   }
