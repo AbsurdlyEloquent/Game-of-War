@@ -10,9 +10,20 @@ Object.defineProperty(window, 'Start', {
 });
 Object.defineProperty(window, 'Reset', {
   get: function() {
-    console.log('Resetting...')
-    wait(2000)
+    console.clear()
+    console.log('Resetting')
+    wait(500)
+    console.clear()
+    console.log('Resetting.');
+    wait(500)
+    console.clear()
+    console.log('Resetting..');
+    wait(500)
+    console.clear()
+    console.log('Resetting...');
+    wait(500)
     if (typeof newGame === typeof undefined || newGame === null) {
+      isReady()
       console.error(`The game hasn't started!`)
     } else {
       window.newGame = null
@@ -51,12 +62,12 @@ console.log(`%c  _             _
 function startGame(){
     window.newGame = new game();
     newGame.deal();
-    // finishGame(newGame.winner)
     //here is where I want the pause to happen until the user presses "enter" key
     function after(){
       newGame.checkCards()
       if (newGame.active === true) {
       newGame.battle();
+      newGame.battleNum++
     } else {
       gameEnd(newGame.winner)
     }
@@ -70,7 +81,7 @@ function startGame(){
     }
     // register your handler method for the keydown event
     if (document.addEventListener) {
-      document.addEventListener('keydown', keydownHandler, false);
+      document.addEventListener('keydown', keydownHandler);
     }
     else if (document.attachEvent) {
       document.attachEvent('onkeydown', keydownHandler);
@@ -111,10 +122,15 @@ class game {
     this.active = false;
   }
   checkCards() {
+    this.player1.hand = this.player1.hand.filter(x=>x!=null)
+    this.player2.hand = this.player2.hand.filter(x=>x!=null)
+    this.player1.discard = this.player1.discard.filter(x=>x!=null)
+    this.player2.discard = this.player2.discard.filter(x=>x!=null)
     if (this.player1.hand === undefined || this.player1.hand.length == 0) {
       if (this.player1.discard.length > 0 ) {
         this.player1.hand = this.newDeck.shuffle(this.player1.discard)
         this.player1.discard = []
+        console.log(`${this.player1.name} just had to refill`);
     } else {
       //if both the discard and the hand are empty, end the game
         this.endGame(this.player2)
@@ -123,23 +139,40 @@ class game {
       if (this.player2.discard.length > 0) {
         this.player2.hand = this.newDeck.shuffle(this.player2.discard)
         this.player2.discard = []
+        console.log(`${this.player2.name} just had to refill`);
       } else {
       this.endGame(this.player1)
     }
     } else {
-      this.battleNum++
+      console.log('we good');
     }
   }
   war() {
     console.log(`oh you're both fucked now`);
+    this.checkCards()
     this.player1.warDraw()
     this.player2.warDraw()
+    //this filters out any undefined items created during the loops
+    //there are definitley better ways to do this
+    this.player1.warCards = this.player1.warCards.filter(x=>x!=null)
+    this.player2.warCards = this.player2.warCards.filter(x=>x!=null)
     if (this.player1.warCards[this.player1.warCards.length-1].score > this.player2.warCards[this.player2.warCards.length-1].score) {
       console.log(`You may have won the battle, ${this.player1.name}, but not the war- ...oh wait`);
       for (var i of this.player1.warCards) {
-        this.player1.discard.push(this.player1.warCards[i], this.player2.warCards[i])
+        this.player1.discard.push(this.player1.warCards[i])
+      } for (var i of this.player2.warCards) {
+        this.player1.discard.push(this.player2.warCards[i])
+      }
+    } else if (this.player1.warCards[this.player1.warCards.length-1].score < this.player2.warCards[this.player2.warCards.length-1].score) {
+      console.log(`You may have won the battle, ${this.player2.name}, but not the war- ...oh wait`);
+      for (var i of this.player1.warCards) {
+        this.player2.discard.push(this.player1.warCards[i])
+      } for (var i of this.player2.warCards) {
+        this.player2.discard.push(this.player2.warCards[i])
       }
     }
+    this.player1.warCards = []
+    this.player2.warCards = []
   }
   battle() {
       console.log(`Battle ${this.battleNum}`)
