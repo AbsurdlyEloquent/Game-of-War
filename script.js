@@ -1,5 +1,5 @@
 import { style } from './style.js'
-import { game, player } from './class.js'
+import { game } from './class.js'
 
 // this is my off brand node readline() that works in browsers
 Object.defineProperty(window, 'Start', {
@@ -38,7 +38,9 @@ console.log(`%c  _             _
 function startGame() {
   window.newGame = new game();
   newGame.deal();
+  while (newGame.active === true) {
   newGame.battle();
+  }
 }
 
 function wait(ms)

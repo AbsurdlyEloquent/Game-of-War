@@ -41,16 +41,16 @@ export class deck {
       for (var rank = 13; rank > 0; rank--) {
         switch(suit) {
           case 4:
-            this.cards.push(new card('hearts', rank))
+            this.cards.push(new card('♥', rank))
             break;
           case 3:
-            this.cards.push(new card('diamonds', rank))
+            this.cards.push(new card('♦', rank))
             break;
           case 2:
-            this.cards.push(new card('clubs', rank))
+            this.cards.push(new card('♣', rank))
             break;
           case 1:
-            this.cards.push(new card('spades', rank))
+            this.cards.push(new card('♠', rank))
         }
       }
     }
@@ -62,6 +62,7 @@ export class deck {
 }
 export class game {
   constructor() {
+    this.active = true;
     this.newDeck = new deck().shuffle();
     this.battleNum = 1;
     this.player1 = new player(prompt('Enter the name of player one:'))
@@ -79,7 +80,7 @@ export class game {
   endGame(player) {
     console.log(`woah ${player} won
       and now we done`);
-      break
+    this.active === false
   }
   checkCards() {
     if (this.player1.hand === undefined || this.player1.hand.length == 0) {
