@@ -10,6 +10,9 @@ export class player {
     this.card = this.hand.shift();
     console.log(this.name, this.card)
   }
+  warDraw() {
+    
+  }
 }
 export class card {
   constructor(suit, rank) {
@@ -95,6 +98,7 @@ export class game {
   }
   war() {
     console.log(`oh you're both fucked now`);
+
   }
   battle() {
     console.log(`Battle ${this.battleNum}`)

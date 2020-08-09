@@ -40,6 +40,7 @@ function startGame() {
   newGame.deal();
   while (newGame.active === true) {
   newGame.battle();
+  wait(1000);
   }
 }
 
