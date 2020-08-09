@@ -8,7 +8,7 @@ export class player {
     // Draws a card and puts it in its own property
     // The property will be deleted at the end of the battle
     this.card = this.hand.shift();
-    console.log(this.hand)
+    console.log(this.name, this.card)
   }
 }
 export class card {
@@ -76,6 +76,25 @@ export class game {
       this.player2.hand.push(card2)
     }
   }
+  endGame(player) {
+    console.log(`woah ${player} won
+      and now we done`);
+      break 
+  }
+  checkCards() {
+    if (this.player1.hand === undefined || this.player1.hand.length == 0) {
+      console.log(`oh shit ${player1.name}`);
+      this.endGame(this.player2)
+    } else if (this.player2.hand === undefined || this.player2.hand.length == 0) {
+      console.log(`oh shit ${player2.name}`);
+      this.endGame(this.player1)
+    } else {
+      this.battle()
+    }
+  }
+  war() {
+    console.log(`oh you're both fucked now`);
+  }
   battle() {
     console.log(`Battle ${this.battleNum}`)
     this.player1.draw()
@@ -90,9 +109,7 @@ export class game {
       this.war(); //oooo scary
     }
     delete this.player1.card, this.player2.card
+    this.checkCards();
     this.battleNum++
-  }
-  war() {
-    console.log(`oh you're both fucked now`);
   }
 }

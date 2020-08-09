@@ -4,7 +4,7 @@ import { game, player } from './class.js'
 // this is my off brand node readline() that works in browsers
 Object.defineProperty(window, 'Start', {
   get: function() {
-    console.log("Here we go!");
+    console.log("Here we go!🃞");
     startGame();
   }
 });
