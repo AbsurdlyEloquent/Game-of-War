@@ -79,7 +79,7 @@ export class game {
   endGame(player) {
     console.log(`woah ${player} won
       and now we done`);
-      break 
+      break
   }
   checkCards() {
     if (this.player1.hand === undefined || this.player1.hand.length == 0) {
@@ -89,7 +89,7 @@ export class game {
       console.log(`oh shit ${player2.name}`);
       this.endGame(this.player1)
     } else {
-      this.battle()
+      this.battleNum++
     }
   }
   war() {
@@ -110,6 +110,5 @@ export class game {
     }
     delete this.player1.card, this.player2.card
     this.checkCards();
-    this.battleNum++
   }
 }
