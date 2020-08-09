@@ -10,11 +10,11 @@ export class player {
     // Draws a card and puts it in its own property
     // The property will be deleted at the end of the battle
     this.card = this.hand.shift();
-    console.log(this.name, this.card)
+    console.log(this.name, this.card.display)
   }
   warDraw() {
     this.warCards = [this.hand.shift(), this.hand.shift(), this.hand.shift(), this.hand.shift()]
-    console.log(this.name, this.warCards[this.warCards.length-1]);
+    console.log(this.name, this.warCards[this.warCards.length-1].display);
   }
 }
 export class card {

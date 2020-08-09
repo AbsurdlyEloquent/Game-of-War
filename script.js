@@ -101,7 +101,7 @@ class game {
     }
   } if (this.player2.hand === undefined || this.player2.hand.length == 0) {
       if (this.player2.discard.length > 0) {
-        this.player.hand = this.newDeck.shuffle(this.player2.discard)
+        this.player2.hand = this.newDeck.shuffle(this.player2.discard)
         this.player2.discard = []
       } else {
       this.endGame(this.player1)
