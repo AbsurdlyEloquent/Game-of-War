@@ -1,7 +1,7 @@
 export class player {
   constructor(name) {
     this.name = name;
-    this.cards = [];
+    this.hand = [];
   }
 }
 export class card {
@@ -19,7 +19,7 @@ export class card {
         this.rank = "Jack"
         break;
       default:
-        this.rank = rank
+        this.rank = rank.toString();
         break;
       case 0:
         this.rank = 'ace'
@@ -57,7 +57,6 @@ export class game {
     this.battle = 0;
     this.player1 = prompt('Enter the name of player one:')
     this.player2 = prompt('Enter the name of player two:')
-
   }
 
   deal() {

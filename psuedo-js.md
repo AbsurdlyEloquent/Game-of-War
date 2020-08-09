@@ -1,10 +1,12 @@
 # Game of War Layout
 
-**Custom Commands**
+## Initial Definitions
+**Custom Commands:**
+
 This goes at the beginning of `script.js`, just after the import statements
 
 ```js
-Object.defineProperty(window, '*command*', {
+Object.defineProperty(window, 'command', {
   get: function() {
     //what the command does
   }
@@ -14,7 +16,7 @@ Object.defineProperty(window, '*command*', {
 - 'Start' *-To start the game*
 - 'Reset' *-To restart the game*
 
-**Classes**
+**Classes:**
 
 - `player` generates a player with a name and an empty hand
 
@@ -31,3 +33,21 @@ Object.defineProperty(window, '*command*', {
 - `StartGame()` -Called by command 'Start'. Initiates new `game`.
 
 ## Document Flow
+
+### Upon Load
+- `import {style} from './style.js'`
+- `import {game} from './class.js'`
+- `isReady();`
+
+### User types 'Start' into the console
+**`startGame()` =>**
+**`newGame = new game` =>**
+- `new deck.shuffle()`
+- Two `new player`'s. **`playerName = prompt();`**
+- calls `game.deal()` to deal cards into array's of respective players. Now empty `deck` array is disposed of
+**`game.deal()` calls `game.battle()`**
+- Draws two cards from each players hand
+*need to make a `draw` method for the players*
+- `if (player1.card.score > player2.card.score) {
+      
+  }`

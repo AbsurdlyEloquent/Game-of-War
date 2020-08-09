@@ -1,6 +1,8 @@
 import { style } from './style.js'
 import { game, player } from './class.js'
 
+isReady();
+
 Object.defineProperty(window, 'Start', {
   get: function() {
     console.log("Here we go!");
@@ -8,7 +10,7 @@ Object.defineProperty(window, 'Start', {
   }
 });
 
-let isReady = function() {
+function isReady() {
 //  window.player1 = prompt(`Enter the name of player one:`);
   console.log(`%c
     WWWWWWWW                           WWWWWWWW                                   !!!
@@ -34,9 +36,10 @@ let isReady = function() {
                                                           _/
 `, style.isReady2,)
   }
-isReady();
+
 
 function startGame() {
   window.newGame = new game();
-  console.log(newGame.player1, newGame.player2);
+  console.log(newGame.player1, newGame.player2)
+  console.log(newGame.newDeck);
 }
