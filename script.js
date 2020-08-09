@@ -99,7 +99,7 @@ class game {
       //if both the discard and the hand are empty, end the game
         this.endGame(this.player2)
     }
-  } else if (this.player2.hand === undefined || this.player2.hand.length == 0) {
+  } if (this.player2.hand === undefined || this.player2.hand.length == 0) {
       if (this.player2.discard.length > 0) {
         this.player.hand = this.newDeck.shuffle(this.player2.discard)
         this.player2.discard = []
@@ -115,7 +115,7 @@ class game {
     this.player1.warDraw()
     this.player2.warDraw()
     if (this.player1.warCards[this.player1.warCards.length-1].score > this.player2.warCards[this.player2.warCards.length-1].score) {
-      console.log(`You may have won the battle, ${player1}, but not the war- ...oh wait`);
+      console.log(`You may have won the battle, ${this.player1.name}, but not the war- ...oh wait`);
       for (var i of this.player1.warCards) {
         this.player1.discard.push(this.player1.warCards[i], this.player2.warCards[i])
       }
