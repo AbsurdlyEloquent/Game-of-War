@@ -9,7 +9,12 @@ export const style = {
     font-size: 12px;
     color: red;
     font-weight: bold;
-  `, card: `
-    color: red;
-  `,
+  `, image: `
+    font-size: 10px;
+    line-height: 100px;
+    padding: 100px 100px;
+    background: url('assets/favicon.png');
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+  `
 }

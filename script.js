@@ -5,7 +5,8 @@ import { design } from './design.js'
 // this is my off brand node readline() that works in browsers
 Object.defineProperty(window, 'Start', {
   get: function() {
-    console.log("Here we go!");
+    console.clear()
+    console.log(`%c${design.shuffle}`,style.shuffle);
     startGame();
   }
 });
@@ -55,6 +56,7 @@ isReady();
 function isReady() {
 console.log(`%c${design.title}`, style.isReady);
 console.log(`%c${design.startPrompt}`, style.isReady2,)
+console.log(`%c `, style.image);
 }
 function startGame(){
     window.newGame = new game();
