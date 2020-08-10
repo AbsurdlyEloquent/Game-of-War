@@ -10,6 +10,6 @@ export const style = {
     color: red;
     font-weight: bold;
   `, card: `
-    border: 1px solid red
+    color: red;
   `,
 }

@@ -74,18 +74,14 @@ function startGame(){
       //wait(500);
         //Below is what I want to happen after the "enter" key has been pressed.
     }
-    function keydownHandler(e) {
+    window.keydownHandler = function(e) {
         if (e.keyCode == 13) {  // 13 is the enter key
             after();
         }
     }
     // register your handler method for the keydown event
-    if (document.addEventListener) {
       document.addEventListener('keydown', keydownHandler);
-    }
-    else if (document.attachEvent) {
-      document.attachEvent('onkeydown', keydownHandler);
-    }
+
 }
 
 function wait(ms)
@@ -94,6 +90,11 @@ function wait(ms)
     var d2 = null;
     do { d2 = new Date(); }
     while(d2-d < ms);
+}
+
+function gameEnd(winner) {
+  document.removeEventListener('keydown', keydownHandler);
+  console.log(`congrats, ${winner.name}. Play again?`);
 }
 
 class game {
