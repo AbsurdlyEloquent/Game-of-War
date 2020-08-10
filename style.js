@@ -13,7 +13,7 @@ export const style = {
     font-size: 10px;
     line-height: 100px;
     padding: 100px 100px;
-    background: url('https://raw.githubusercontent.com/AbsurdlyEloquent/Game-of-War/master/assets/playing-cards.jpg');
+    background: url('https://raw.githubusercontent.com/AbsurdlyEloquent/Game-of-War/master/assets/card-shuffle.gif');
     background-size: 100px 100px;
     background-repeat: no-repeat;
   `
