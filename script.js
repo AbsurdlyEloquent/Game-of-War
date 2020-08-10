@@ -101,7 +101,6 @@ class game {
     this.active = true;
     this.newDeck = new deck()
     this.newDeck.shuffle(this.newDeck.cards)
-    console.log(this.newDeck.cards);
     this.battleNum = 1;
     this.player1 = new player(prompt('Enter the name of player one:'))
     this.player2 = new player(prompt('Enter the name of player two:'))

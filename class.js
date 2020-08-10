@@ -14,7 +14,9 @@ export class player {
   }
   warDraw() {
     this.warCards = [this.hand.shift(), this.hand.shift(), this.hand.shift(), this.hand.shift()]
+    this.warCards = this.warCards.filter(x=>x!=null)
     console.log(this.name, this.warCards[this.warCards.length-1].display);
+
   }
 }
 export class card {
@@ -32,7 +34,7 @@ export class card {
         this.rank = "Jack"
         break;
       case 10:
-        this.rank = "⒑"
+        this.rank = "➉"
         break;
       case 1:
         this.rank = 'Ace'
@@ -71,7 +73,6 @@ export class deck {
         }
       }
     }
-    console.log(this.cards[0].display);
   }
   shuffle(array) {
     // number is randomly + or - which tells the sort to switch or not
