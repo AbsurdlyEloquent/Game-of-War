@@ -91,7 +91,6 @@ export class deck {
         }
       }
     }
-    console.log(`%c${this.cards[0].display.front}, ${this.cards[0].display.back}`, style.card);
   }
   shuffle(array) {
     // number is randomly + or - which tells the sort to switch or not

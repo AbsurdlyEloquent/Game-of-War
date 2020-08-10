@@ -13,16 +13,16 @@ Object.defineProperty(window, 'Start', {
 Object.defineProperty(window, 'Reset', {
   get: function() {
     console.clear()
-    console.log('Resetting')
+    console.log('%cResetting', style.reset)
     wait(500)
     console.clear()
-    console.log('Resetting.');
+    console.log('%cResetting.', style.reset);
     wait(500)
     console.clear()
-    console.log('Resetting..');
+    console.log('%cResetting..', style.reset);
     wait(500)
     console.clear()
-    console.log('Resetting...');
+    console.log('%cResetting...', style.reset);
     wait(500)
     if (typeof newGame === typeof undefined || newGame === null) {
       isReady()
@@ -55,8 +55,7 @@ Object.defineProperty(window, 'autoplay', {
 isReady();
 function isReady() {
 console.log(`%c${design.title}`, style.isReady);
-console.log(`%c${design.startPrompt}`, style.isReady2,)
-console.log(`%c `, style.image);
+console.log(`%c⬇Enter Start to start the game⬇`, style.isReady2,)
 }
 function startGame(){
     window.newGame = new game();

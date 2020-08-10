@@ -16,10 +16,5 @@ export const design = {
             W:::::W         W:::::W       a:::::aaaa::::::a r:::::r             !!!
              W:::W           W:::W         a::::::::::aa:::ar:::::r            !!:!!
               WWW             WWW           aaaaaaaaaa  aaaarrrrrrr             !!!
-  `, startPrompt: `
-  _             _
- /_\`_ _/__  _  /_\`_/__  __/_ _/__    __/__  __/_ _/_/_ _   _  _  _ _  _  /
-/_,/ // /_'/  ._/ / /_|/ /   / /_/ _\\ / /_|/ /   / / //_' /_//_|/ / //_'.
-                                                          _/
-  `, shuffle: ` `
+  `, shuffle: `Shuffling the deck...`
 }

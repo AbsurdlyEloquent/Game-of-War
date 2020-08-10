@@ -6,15 +6,22 @@ export const style = {
     font-size: 10px;
     font-weight: bold;
   `, isReady2: `
-    font-size: 12px;
+    font-size: 23px;
+    padding:0 10px 0 50px;
     color: red;
+    font-style: italic;
+  `, shuffle: `
+    font-size: 24px;
     font-weight: bold;
-  `, image: `
-    font-size: 10px;
-    line-height: 100px;
-    padding: 100px 100px;
+    line-height: 10px;
+    width: 100px;
+    padding: 50px 200px 425px 100px;
     background: url('https://raw.githubusercontent.com/AbsurdlyEloquent/Game-of-War/master/assets/card-shuffle.gif');
-    background-size: 100px 100px;
+    background-size: 500px 500px;
     background-repeat: no-repeat;
+  `, reset: `
+    font-size: 24px;
+    font-weight: bold;
+
   `
 }
