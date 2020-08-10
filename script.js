@@ -92,7 +92,8 @@ function wait(ms)
 }
 
 function gameEnd(winner) {
-  console.log(`congrats, ${winner.name}. Play again?`);
+  console.log(`%c${winner.name} has won the game!!!
+    %cType reset to player again`,style.gameEnd,style.cont);
 }
 
 class game {
@@ -113,10 +114,9 @@ class game {
       this.player2.hand.push(card2)
     }
   }
-  endGame(player) {
-    console.log(`woah ${player.name} won
-      and now we done`);
-    this.winner = player
+  endGame(winner, loser) {
+    console.log(`%c${loser.name} has run out of cards!!!`,style.runout);
+    this.winner = winner
     this.active = false;
   }
   checkCards() {
@@ -131,7 +131,7 @@ class game {
         console.log(`%c${this.player1.name} ran out of cards! %cBut they have more in the discard pile...`,style.runout,style.refill);
     } else {
       //if both the discard and the hand are empty, end the game
-        this.endGame(this.player2)
+        this.endGame(this.player2,this.player1)
     }
   } if (this.player2.hand === undefined || this.player2.hand.length == 0) {
       if (this.player2.discard.length > 0) {

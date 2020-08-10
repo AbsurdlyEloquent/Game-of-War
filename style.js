@@ -47,5 +47,9 @@ export const style = {
   `, refill: `
     font-size: 15px;
     color: black;
+  `, gameEnd: `
+    font-size: 24px;
+    color-white:
+
   `
 }
