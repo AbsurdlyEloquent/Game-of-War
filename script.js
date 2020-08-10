@@ -12,22 +12,21 @@ Object.defineProperty(window, 'Start', {
 });
 Object.defineProperty(window, 'Reset', {
   get: function() {
-    console.clear()
-    console.log('%cResetting', style.reset)
-    wait(500)
-    console.clear()
-    console.log('%cResetting.', style.reset);
-    wait(500)
-    console.clear()
-    console.log('%cResetting..', style.reset);
-    wait(500)
-    console.clear()
-    console.log('%cResetting...', style.reset);
-    wait(500)
     if (typeof newGame === typeof undefined || newGame === null) {
-      isReady()
       console.error(`The game hasn't started!`)
     } else {
+      console.clear()
+      console.log('%cResetting', style.reset)
+      wait(500)
+      console.clear()
+      console.log('%cResetting.', style.reset);
+      wait(500)
+      console.clear()
+      console.log('%cResetting..', style.reset);
+      wait(500)
+      console.clear()
+      console.log('%cResetting...', style.reset);
+      wait(500)
       window.newGame = null
       console.clear()
       isReady();
@@ -47,7 +46,6 @@ Object.defineProperty(window, 'autoplay', {
     } else {
       gameEnd(newGame.winner)
     }
-    wait(500);
     }
   }
 })
@@ -172,9 +170,11 @@ class game {
     this.player2.warCards = []
   }
   battle() {
-      console.log(`Battle ${this.battleNum}`)
+      console.log(`%cBattle ${this.battleNum}`,style.battleNum)
       this.player1.draw()
       this.player2.draw()
+      wait(500)
+      console.log(`%c${this.player1.card.display} %c${this.player2.card.display}`, this.player1.card.redOrBlack(), this.player2.card.redOrBlack());
       if (this.player1.card.score > this.player2.card.score) {
         console.log(`${this.player1.name} wins lol`)
         this.player1.discard.push(this.player1.card, this.player2.card)

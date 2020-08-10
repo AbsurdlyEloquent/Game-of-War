@@ -22,6 +22,16 @@ export const style = {
   `, reset: `
     font-size: 24px;
     font-weight: bold;
-
+  `, redCard: `
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+  `, blackCard: `
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+  `, battleNum: `
+    font-size:20px;
+    color: red;
   `
 }

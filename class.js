@@ -12,12 +12,12 @@ export class player {
     // Draws a card and puts it in its own property
     // The property will be deleted at the end of the battle
     this.card = this.hand.shift();
-    console.log(this.name, this.card.display.front)
+
   }
   warDraw() {
     this.warCards = [this.hand.shift(), this.hand.shift(), this.hand.shift(), this.hand.shift()]
     this.warCards = this.warCards.filter(x=>x!=null)
-    console.log(this.name, this.warCards[this.warCards.length-1].display.front);
+    console.log(this.name, this.warCards[this.warCards.length-1].display);
 
   }
 }
@@ -45,22 +45,13 @@ export class card {
         // toString is for displaying cards easily
         this.rank = rank.toString();
     }
-    this.display = {}
-    this.display.front = `
+    this.display = `
     _____
    |${this.rank[0]}    |
    |     |
    |  ${this.suit}  |
    |     |
    |____${this.rank[0]}|
-    `
-    this.display.back = `
-    ______
-   |      |
-   | ⁙⁙⁙ |
-   | ⁙‽⁙ |
-   | ⁙⁙⁙ |
-   |______|
     `
   }
   redOrBlack() {
@@ -74,6 +65,14 @@ export class card {
 export class deck {
   constructor() {
     this.cards = [];
+    this.cardBack =  `
+    ______
+   |      |
+   | ---- |
+   | ---- |
+   | ---- |
+   |______|
+    `
     for (var suit = 4; suit > 0; suit--) {
       for (var rank = 13; rank > 0; rank--) {
         switch(suit) {
