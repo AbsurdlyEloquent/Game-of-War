@@ -1,10 +1,11 @@
 import { style } from './style.js'
 import { deck, player } from './class.js'
+import { design } from './design.js'
 
 // this is my off brand node readline() that works in browsers
 Object.defineProperty(window, 'Start', {
   get: function() {
-    console.log("Here we go!🃞");
+    console.log("Here we go!");
     startGame();
   }
 });
@@ -31,33 +32,29 @@ Object.defineProperty(window, 'Reset', {
       isReady();
     }
   }
+});
+Object.defineProperty(window, 'autoplay', {
+  get: function() {
+    console.clear()
+    window.newGame = new game();
+    newGame.deal();
+    while (newGame.active === true) {
+      newGame.checkCards()
+      if (newGame.active === true) {
+      newGame.battle();
+      newGame.battleNum++
+    } else {
+      gameEnd(newGame.winner)
+    }
+    wait(500);
+    }
+  }
 })
 // yes I really like ascii
 isReady();
 function isReady() {
-console.log(`%c
-    WWWWWWWW                           WWWWWWWW                                   !!!
-    W::::::W                           W::::::W                                  !!:!!
-    W::::::W                           W::::::W                                  !:::!
-    W::::::W                           W::::::W                                  !:::!
-     W:::::W           WWWWW           W:::::Waaaaaaaaaaaaa  rrrrr   rrrrrrrrr   !:::!
-      W:::::W         W:::::W         W:::::W a::::::::::::a r::::rrr:::::::::r  !:::!
-       W:::::W       W:::::::W       W:::::W  aaaaaaaaa:::::ar:::::::::::::::::r !:::!
-        W:::::W     W:::::::::W     W:::::W            a::::arr::::::rrrrr::::::r!:::!
-         W:::::W   W:::::W:::::W   W:::::W      aaaaaaa:::::a r:::::r     r:::::r!:::!
-          W:::::W W:::::W W:::::W W:::::W     aa::::::::::::a r:::::r     rrrrrrr!:::!
-           W:::::W:::::W   W:::::W:::::W     a::::aaaa::::::a r:::::r            !!:!!
-            W:::::::::W     W:::::::::W     a::::a    a:::::a r:::::r             !!!
-             W:::::::W       W:::::::W      a::::a    a:::::a r:::::r
-              W:::::W         W:::::W       a:::::aaaa::::::a r:::::r             !!!
-               W:::W           W:::W         a::::::::::aa:::ar:::::r            !!:!!
-                WWW             WWW           aaaaaaaaaa  aaaarrrrrrr             !!!
-                        `, style.isReady);
-console.log(`%c  _             _
- /_\`_ _/__  _  /_\`_/__  __/_ _/__    __/__  __/_ _/_/_ _   _  _  _ _  _  /
-/_,/ // /_'/  ._/ / /_|/ /   / /_/ _\\ / /_|/ /   / / //_' /_//_|/ / //_'.
-                                                          _/
-`, style.isReady2,)
+console.log(`%c${design.title}`, style.isReady);
+console.log(`%c${design.startPrompt}`, style.isReady2,)
 }
 function startGame(){
     window.newGame = new game();
@@ -74,8 +71,8 @@ function startGame(){
       //wait(500);
         //Below is what I want to happen after the "enter" key has been pressed.
     }
-    window.keydownHandler = function(e) {
-        if (e.keyCode == 13) {  // 13 is the enter key
+    let keydownHandler = function(e) {
+        if (e.keyCode === 13 && newGame.active) {  // 13 is the enter key
             after();
         }
     }
@@ -93,7 +90,6 @@ function wait(ms)
 }
 
 function gameEnd(winner) {
-  document.removeEventListener('keydown', keydownHandler);
   console.log(`congrats, ${winner.name}. Play again?`);
 }
 
