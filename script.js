@@ -43,7 +43,7 @@ Object.defineProperty(window, 'autoplay', {
       if (newGame.active === true) {
       newGame.battle();
       newGame.battleNum++
-      wait(500)
+      wait(100)
     } else {
       gameEnd(newGame.winner)
     }
@@ -92,9 +92,11 @@ function wait(ms)
 }
 
 function gameEnd(winner) {
-  console.log(`%c${winner.name} has won the game!!!
-    %cType reset to player again`,style.gameEnd,style.cont);
+  console.log(`%c${winner.name} has won the game!!`,style.gameEnd);
+  console.log(`%cType reset to play again`,style.cont);
 }
+let player6 = {name:'player'}
+gameEnd(player6);
 
 class game {
   constructor() {
@@ -139,7 +141,7 @@ class game {
         this.player2.discard = []
         console.log(`%c${this.player2.name} ran out of cards! %cBut they have more in the discard pile...`,style.runout,style.refill);
       } else {
-      this.endGame(this.player1)
+      this.endGame(this.player1,this.player2)
     }
     }
   }

@@ -49,7 +49,14 @@ export const style = {
     color: black;
   `, gameEnd: `
     font-size: 24px;
-    color-white:
-
+    text-align: center;
+    color: white;
+    padding: 100px 50px 100px 50px;
+    background-image: url('https://raw.githubusercontent.com/AbsurdlyEloquent/Game-of-War/master/assets/winner.png');
+    background-color: grey;
+    background-size: 441px 330px;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    border-radius: 10%;
   `
 }
