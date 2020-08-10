@@ -1,5 +1,5 @@
 //I thought I was gonna use more ASCII art. This doesn't need to be its own file
-// but I don't feel like movg
+// but I don't feel like moving it
 
 export const design = {
   title: `
