@@ -6,7 +6,6 @@ export class player {
     //will be filled with cards upon game.deal()
     this.hand = [];
     this.discard = [];
-    this.discard = [];
   }
   draw() {
     // Draws a card and puts it in its own property
