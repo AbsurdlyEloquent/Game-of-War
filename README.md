@@ -5,7 +5,7 @@
 
 This goes at the beginning of `script.js`, just after the import statements
 
-***These Cannot Be Existing Properties On The Window***
+***!!!These Cannot Be Existing Properties On The Window!!!***
 
 ```js
 Object.defineProperty(window, 'command', {
