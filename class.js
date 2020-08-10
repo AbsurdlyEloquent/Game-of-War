@@ -17,7 +17,14 @@ export class player {
   warDraw() {
     this.warCards = [this.hand.shift(), this.hand.shift(), this.hand.shift(), this.hand.shift()]
     this.warCards = this.warCards.filter(x=>x!=null)
-    console.log(this.name, this.warCards[this.warCards.length-1].display);
+    console.log(`%c
+      ______    ______    ______    ______
+     |      |  |      |  |      |  |${this.warCards[this.warCards.length-1].rank[0]}     |
+     | ---- |  | ---- |  | ---- |  |      |
+     | ---- |  | ---- |  | ---- |  |   ${this.warCards[this.warCards.length-1].suit}  |
+     | ---- |  | ---- |  | ---- |  |      |
+     |______|  |______|  |______|  |_____${this.warCards[this.warCards.length-1].rank[0]}|
+      `,this.warCards[this.warCards.length-1].redOrBlack());
 
   }
 }

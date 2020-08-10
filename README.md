@@ -32,11 +32,14 @@ Object.defineProperty(window, 'command', {
 
 - `wait()` -Similar to bash `sleep`. Takes in ml values. *-Not mine, shamelessly stolen-*
 
+- `gameEnd()` -Ends the game and prompts for a reset
+
 ## Document Flow
 
 ### Upon Load
 - `import {style} from './style.js'`
-- `import {game} from './class.js'`
+- `import {deck, player} from './class.js'`
+- `import {design} from './design.js'`
 - `isReady();`
 
 ### User types 'Start' into the console

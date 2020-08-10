@@ -138,17 +138,16 @@ class game {
       } else {
       this.endGame(this.player1)
     }
-    } else {
-      console.log('we good');
     }
   }
   war() {
-    console.log(`oh you're both fucked now`);
+    console.log(`🗡C'est la guerre!!💣 (this means war)`);
     this.checkCards()
     this.player1.warDraw()
     this.player2.warDraw()
     //this filters out any undefined items created during the loops
     //there are definitley better ways to do this
+    //these are all over the place I lost track of them all
     this.player1.warCards = this.player1.warCards.filter(x=>x!=null)
     this.player2.warCards = this.player2.warCards.filter(x=>x!=null)
     if (this.player1.warCards[this.player1.warCards.length-1].score > this.player2.warCards[this.player2.warCards.length-1].score) {
@@ -170,10 +169,10 @@ class game {
     this.player2.warCards = []
   }
   battle() {
-      console.log(`%cBattle ${this.battleNum}`,style.battleNum)
+      console.log(`%c🥁Battle ${this.battleNum}🔫`,style.battleNum)
       this.player1.draw()
       this.player2.draw()
-      wait(500)
+    //  wait(500)
       console.log(`%c${this.player1.card.display} %c${this.player2.card.display}`, this.player1.card.redOrBlack(), this.player2.card.redOrBlack());
       if (this.player1.card.score > this.player2.card.score) {
         console.log(`${this.player1.name} wins lol`)
