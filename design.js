@@ -1,3 +1,6 @@
+//I thought I was gonna use more ASCII art. This doesn't need to be its own file
+// but I don't feel like movg
+
 export const design = {
   title: `
   WWWWWWWW                           WWWWWWWW                                   !!!
