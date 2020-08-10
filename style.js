@@ -31,7 +31,21 @@ export const style = {
     font-weight: bold;
     color: black;
   `, battleNum: `
-    font-size:20px;
+    font-size: 18px;
+    color: black;
+  `, war: `
+    font-size: 20px;
     color: red;
+  `, cont: `
+    font-size: 15px;
+  `, battleWin: `
+    font-size: 18px;
+    font-style: italic;
+  `, runout: `
+    font-size: 18px;
+    color: red;
+  `, refill: `
+    font-size: 15px;
+    color: black;
   `
 }

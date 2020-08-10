@@ -43,6 +43,7 @@ Object.defineProperty(window, 'autoplay', {
       if (newGame.active === true) {
       newGame.battle();
       newGame.battleNum++
+      wait(500)
     } else {
       gameEnd(newGame.winner)
     }
@@ -58,12 +59,14 @@ console.log(`%c⬇Enter Start to start the game⬇`, style.isReady2,)
 function startGame(){
     window.newGame = new game();
     newGame.deal();
+    console.log(`%cPress Enter to continue...`, style.cont);
     //here is where I want the pause to happen until the user presses "enter" key
     function after(){
       newGame.checkCards()
       if (newGame.active === true) {
       newGame.battle();
       newGame.battleNum++
+      console.log(`%cPress Enter to continue...`,style.cont);
     } else {
       gameEnd(newGame.winner)
     }
@@ -125,7 +128,7 @@ class game {
       if (this.player1.discard.length > 0 ) {
         this.player1.hand = this.newDeck.shuffle(this.player1.discard)
         this.player1.discard = []
-        console.log(`${this.player1.name} just had to refill`);
+        console.log(`%c${this.player1.name} ran out of cards! %cBut they have more in the discard pile...`,style.runout,style.refill);
     } else {
       //if both the discard and the hand are empty, end the game
         this.endGame(this.player2)
@@ -134,14 +137,14 @@ class game {
       if (this.player2.discard.length > 0) {
         this.player2.hand = this.newDeck.shuffle(this.player2.discard)
         this.player2.discard = []
-        console.log(`${this.player2.name} just had to refill`);
+        console.log(`%c${this.player2.name} ran out of cards! %cBut they have more in the discard pile...`,style.runout,style.refill);
       } else {
       this.endGame(this.player1)
     }
     }
   }
   war() {
-    console.log(`🗡C'est la guerre!!💣 (this means war)`);
+    console.log(`%c🗡C'est la guerre!!💣 (this means war)`,style.war);
     this.checkCards()
     this.player1.warDraw()
     this.player2.warDraw()
@@ -151,14 +154,14 @@ class game {
     this.player1.warCards = this.player1.warCards.filter(x=>x!=null)
     this.player2.warCards = this.player2.warCards.filter(x=>x!=null)
     if (this.player1.warCards[this.player1.warCards.length-1].score > this.player2.warCards[this.player2.warCards.length-1].score) {
-      console.log(`You may have won the battle, ${this.player1.name}, but not the war- ...oh wait`);
+      console.log(`%cYou may have won the battle, ${this.player1.name}, but not the war- ...oh wait`, style.battleWin);
       for (var i of this.player1.warCards) {
         this.player1.discard.push(this.player1.warCards[i])
       } for (var i of this.player2.warCards) {
         this.player1.discard.push(this.player2.warCards[i])
       }
     } else if (this.player1.warCards[this.player1.warCards.length-1].score < this.player2.warCards[this.player2.warCards.length-1].score) {
-      console.log(`You may have won the battle, ${this.player2.name}, but not the war- ...oh wait`);
+      console.log(`%cYou may have won the battle, ${this.player2.name}, but not the war- ...oh wait`, style.battleWin);
       for (var i of this.player1.warCards) {
         this.player2.discard.push(this.player1.warCards[i])
       } for (var i of this.player2.warCards) {
@@ -173,14 +176,16 @@ class game {
       this.player1.draw()
       this.player2.draw()
     //  wait(500)
-      console.log(`%c${this.player1.card.display} %c${this.player2.card.display}`, this.player1.card.redOrBlack(), this.player2.card.redOrBlack());
+      console.log(`%c${this.player1.name}${this.player1.card.display}`, this.player1.card.redOrBlack());
+      console.log(`%c${this.player2.name}${this.player2.card.display}`, this.player2.card.redOrBlack());
       if (this.player1.card.score > this.player2.card.score) {
-        console.log(`${this.player1.name} wins lol`)
+        console.log(`%c${this.player1.name} wins this round`,style.battleWin)
         this.player1.discard.push(this.player1.card, this.player2.card)
       } else if (this.player1.card.score < this.player2.card.score) {
-        console.log(`${this.player2.name} wins lol`);
+        console.log(`%c${this.player2.name} wins this round`,style.battleWin);
         this.player2.discard.push(this.player1.card, this.player2.card)
       } else if (this.player1.card.score === this.player2.card.score) {
+        wait(500)
         this.war(); //oooo scary
       }
   }
