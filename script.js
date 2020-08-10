@@ -43,7 +43,7 @@ Object.defineProperty(window, 'autoplay', {
       if (newGame.active === true) {
       newGame.battle();
       newGame.battleNum++
-      wait(100)
+      wait(500)
     } else {
       gameEnd(newGame.winner)
     }
