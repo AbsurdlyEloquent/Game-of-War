@@ -95,8 +95,6 @@ function gameEnd(winner) {
   console.log(`%c${winner.name} has won the game!!`,style.gameEnd);
   console.log(`%cType reset to play again`,style.cont);
 }
-let player6 = {name:'player'}
-gameEnd(player6);
 
 class game {
   constructor() {
