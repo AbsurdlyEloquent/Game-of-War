@@ -1,3 +1,5 @@
+import { style } from './style.js'
+
 export class player {
   constructor(name) {
     this.name = name;
@@ -43,7 +45,8 @@ export class card {
         // toString is for displaying cards easily
         this.rank = rank.toString();
     }
-    this.display = `
+    this.display = {}
+    this.display.front = `
     _____
    |${this.rank[0]}    |
    |     |
@@ -51,6 +54,21 @@ export class card {
    |     |
    |____${this.rank[0]}|
     `
+    this.display.back = `
+    ______
+   |      |
+   | ⁙⁙⁙ |
+   | ⁙‽⁙ |
+   | ⁙⁙⁙ |
+   |______|
+    `
+  }
+  redOrBlack() {
+    if (this.suit === '♥' || this.suit === '♦') {
+      return style.redCard
+    } else {
+      return style.blackCard
+    }
   }
 }
 export class deck {
@@ -73,6 +91,7 @@ export class deck {
         }
       }
     }
+    console.log(`%c${this.cards[0].display.front}, ${this.cards[0].display.back}`, style.card);
   }
   shuffle(array) {
     // number is randomly + or - which tells the sort to switch or not

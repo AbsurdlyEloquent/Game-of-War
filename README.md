@@ -1,2 +1,2 @@
 # Game-of-War
-Javascript Game of War Project
+JavaScript Game of War Project

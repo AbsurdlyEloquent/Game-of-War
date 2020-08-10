@@ -9,5 +9,7 @@ export const style = {
     font-size: 12px;
     color: red;
     font-weight: bold;
+  `, card: `
+    border: 1px solid red
   `,
 }
