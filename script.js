@@ -175,9 +175,10 @@ class game {
       console.log(`%c🥁Battle ${this.battleNum}🔫`,style.battleNum)
       this.player1.draw()
       this.player2.draw()
-    //  wait(500)
       console.log(`%c${this.player1.name}${this.player1.card.display}`, this.player1.card.redOrBlack());
+      console.log(`%c${this.player1.name} has ${this.player1.hand.length} cards left`, style.refill);
       console.log(`%c${this.player2.name}${this.player2.card.display}`, this.player2.card.redOrBlack());
+      console.log(`%c${this.player2.name} has ${this.player2.hand.length} cards left`, style.refill);
       if (this.player1.card.score > this.player2.card.score) {
         console.log(`%c${this.player1.name} wins this round`,style.battleWin)
         this.player1.discard.push(this.player1.card, this.player2.card)
